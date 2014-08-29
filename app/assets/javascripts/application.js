@@ -12,5 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require bootstrap
 //= require_tree .
+
+
+$(document).ready(function() {
+
+$('#modal-window').modal('show')   ;
+$('.modal-body').html('<%= escape_javascript(render :partial => "form", :object =>  @course) %>'); });

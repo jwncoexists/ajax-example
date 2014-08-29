@@ -1,33 +1,41 @@
-<%= form_for(@course) do |f| %>
-  <% if @course.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
+<%= form_for @course, remote: true, html: { class: "form-horizontal", style: "display:inline;" } do |f| %>
+  <div class="modal-body">
 
-      <ul>
-      <% @course.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <ul class="errors"></ul>
+
+    <div class="control-group">
+      <%= f.label :code, class:"control-label" %>
+      <div class="controls">
+        <%= f.text_field :code %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :code %><br>
-    <%= f.text_field :code %>
+    <div class="control-group">
+      <%= f.label :title, class:"control-label" %>
+      <div class="controls">
+        <%= f.text_field :title %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :description, class:"control-label" %>
+      <div class="controls">
+        <%= f.text_field :description %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :credits, class:"control-label" %>
+      <div class="controls">
+        <%= f.number_field :credits %>
+      </div>
+    </div>
+
   </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+
+  <div class="modal-footer">
+    <%= f.submit class: "btn btn-primary" %>
+    <%= link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"} %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :credits %><br>
-    <%= f.number_field :credits %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>

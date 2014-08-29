@@ -1,35 +1,33 @@
-<h1>Courses</h1>
+<div class="container">
+  <div class="well">
+    <%= link_to 'New Course', new_course_path, class: 'btn btn-primary', remote: true   %>
+  </div>
 
-<%= link_to 'New Course', new_course_path, class: 'btn btn-primary' %>
+  <div class="new-course"></div>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Code</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Credits</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @courses.each do |course| %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= course.code %></td>
-        <td><%= course.title %></td>
-        <td><%= course.description %></td>
-        <td><%= course.credits %></td>
-        <td><%= link_to 'Show', course %></td>
-        <td><%= link_to 'Edit', edit_course_path(course) %></td>
-        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Code</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Credits</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody class="course-index">
+      <%= render "index" %>
+    </tbody>
+  </table>
+</div>
+
+<div id="course-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div id="inner-course-modal" class="modal-content"></div>
+  </div>
+</div>
 
 
