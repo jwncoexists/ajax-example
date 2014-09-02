@@ -4,8 +4,7 @@
         <td><%= course.title %></td>
         <td><%= course.description %></td>
         <td><%= course.credits %></td>
-        <td><%= link_to 'Edit', edit_course_path(course), remote: true, class: "btn" %></td>
-        <td><%= link_to 'Delete', course_delete_path(course), remove: true, class: "btn btn-danger" %></td>
-        <td><%= link_to 'Show', course_path(course), {:remote => true, 'data-controls-modal' =>  "modal-window", 'data-backdrop' => true, 'data-keyboard' => true, :class => "btn btn-primary ", :id => 'show_course'} %>
+        <td><%= link_to 'Edit', edit_course_path(course), remote: true, class: "btn btn-primary " %></td>
+        <td><%= link_to 'Delete', course_delete_path(course), remote: true, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
