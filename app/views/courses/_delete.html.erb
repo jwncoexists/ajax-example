@@ -7,5 +7,5 @@ Are you sure you wish to delete <b><%= @course.title %></b>?
 </div>
 <div class="modal-footer">
   <%= link_to "Yes, Delete this Course", course_path(@course), method: :delete, remote: true, class: "btn btn-danger" %>
-  <%= link_to "No, Please Don't Delete", "#", class: "btn", data: { dismiss: "modal" } %>
+  <%= link_to "No, Please Don't Delete", "#", class: "btn btn-primary", data: { dismiss: "modal" } %>
 </div>

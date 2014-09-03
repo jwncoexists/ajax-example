@@ -47,19 +47,13 @@ class CoursesController < ApplicationController
   # DELETE /courses/1.json
   def destroy
     @courses = Course.all
-    @course = Course.find(params([:id]))
-    if @course.destroy
-      flash[:notice] = "Course was deleted successfully."
-      redirect_to courses_path
-    else
-      flash[:error] = "There was an error deleting the course."
-      render :show
-    end
+    @course = Course.find(params([:course_id]))
+    @course.destroy
   end
 
   private
     # list of params allowed
     def course_params
-      params.require(:course).permit(:code, :title, :description, :credits)
+      params.require(:course).permit(:code, :title, :description, :credits, :id)
     end
 end
