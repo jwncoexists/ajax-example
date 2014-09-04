@@ -1,7 +1,8 @@
 Coursemgr::Application.routes.draw do
-  resources :courses do
-    get "delete"
-  end
+  #resources :courses do
+   # get "delete"
+  #end
+  resources :courses
   root to: "courses#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

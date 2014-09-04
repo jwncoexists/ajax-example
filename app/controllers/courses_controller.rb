@@ -39,15 +39,12 @@ class CoursesController < ApplicationController
     @course.update_attributes(course_params)
   end
 
-  def delete
-    @course = Course.find(params[:course_id])
-  end
 
   # DELETE /courses/1
   # DELETE /courses/1.json
   def destroy
     @courses = Course.all
-    @course = Course.find(params([:course_id]))
+    @course = Course.find(params[:id])
     @course.destroy
   end
 
